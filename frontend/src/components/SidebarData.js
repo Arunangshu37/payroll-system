@@ -3,6 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 
+
 export const SidebarData = [
   {
     title: "Home",
@@ -40,10 +41,35 @@ export const SidebarData = [
     icon: <IoIcons.IoMdHelpCircle />,
     cName: "nav-text",
   },
+  
+  {
+    title: "Onboarding",
+    path: "/onboarding",
+    icon: <IoIcons.IoMdPersonAdd />,
+    cName: "nav-text",
+  },
+  {
+    title: "Attendance",
+    path: "/attendance",
+    icon: <IoIcons.IoMdCalendar />,
+    cName: "nav-text",
+  },
+  {
+    title: "Payroll",
+    path: "/Payroll",
+    icon: <FaIcons.FaMoneyBill />,
+    cName: "nav-text",
+  },
   {
     title: "Settings",
     path: "/setting",
     icon: <IoIcons.IoMdSettings />,
+    cName: "nav-text",
+  },
+  {
+    title: "Reports",
+    path: "/reports",
+    icon: < FaIcons.FaFileExcel />,
     cName: "nav-text",
   },
  

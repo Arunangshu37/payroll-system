@@ -2,11 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
-import './bootstrap.min.css'
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css'
-// Importing Sass with Bootstrap CSS
 // import './App.scss';
 // import "./slick.css";
 // import "./slick-theme.css";
