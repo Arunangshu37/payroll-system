@@ -38,7 +38,7 @@ const AyurvedInfo = () => {
             <div class="pa-why spacer-top spacer-bottom">
                 <div class="container">
                     <div class="pa-heading">
-                        <img src="/images/herbal.svg" alt="image" class="img-fluid" />
+                        <img src="" alt="image" class="img-fluid" />
                         <h1>why pure Ayurveda</h1>
                         <h5>best for you</h5>
                     </div>
@@ -56,7 +56,7 @@ const AyurvedInfo = () => {
                         </div>
                         <div class="col-md-4 p-0">
                             <div class="pa-why-img">
-                                <img src="/images/herbal.svg" alt="image" class="img-fluid" />
+                                <img src="" alt="image" class="img-fluid" />
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 pl-0">

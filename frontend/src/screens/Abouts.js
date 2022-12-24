@@ -1,11 +1,9 @@
 import React from 'react'
 import '../about.css'
-import Breadcrumb from '../components/Breadcrumb'
 
 const Abouts=() =>{
   return (
     <>
-    <Breadcrumb/>
         <div className="pa-about spacer-top spacer-bottom">
             <div className="container">
                 <div className="row">
@@ -17,7 +15,7 @@ const Abouts=() =>{
                     <div className="col-lg-6">
                         <div className="pa-about-content">
                             <div className="pa-heading">
-                                <img src={"/images/herbal.svg"} alt="image" className="img-fluid"/>
+                                <img src={""} alt="image" className="img-fluid"/>
                                 <h1>We are here with 25 years of experience</h1>
                                 <h5>about us</h5>
                             </div>
@@ -32,7 +30,7 @@ const Abouts=() =>{
         <div class="pa-counter spacer-top spacer-bottom">
             <div class="container">
                 <div class="pa-heading">
-                    <img src={"images/herbal.svg"} alt="image" class="img-fluid"/>
+                    <img src={""} alt="image" class="img-fluid"/>
                     <h1>Benefit from choosing the best</h1>
                     <h5>Our recent achievements</h5>
                 </div>
@@ -157,7 +155,7 @@ const Abouts=() =>{
                 <div class="pa-team">
             <div class="container">
                 <div class="pa-heading">
-                    <img src={"images/herbal.svg"} alt="image" class="img-fluid"/>
+                    <img src={""} alt="image" class="img-fluid"/>
                     <h1>Our experts</h1>
                     <h5>team</h5>
                 </div>

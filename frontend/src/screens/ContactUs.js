@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Container, Row, Card, Button, } from 'react-bootstrap'
 import "../contact.css"
-import Breadcrumb from '../components/Breadcrumb'
+
 
 const ContactUs = ({ history }) => {
   const currentYear = new Date().getFullYear();
   return (
     <>
-      <Breadcrumb />
+
       <Container>
         <section className="contact-page-sec">
           <div className="contactcontainer">

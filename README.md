@@ -1,4 +1,4 @@
-# Vaidya Manager
+# Payroll Manager
 
 ## Tech
 
