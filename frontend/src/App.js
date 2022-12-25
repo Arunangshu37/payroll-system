@@ -37,29 +37,36 @@ import About from './screens/Abouts'
 const App = () => {
 
     return (
-        <Router history={history}>
+      <main  class="app">
+          <Router history={history}>
             <Header />
-            <Route path='/' component={HomeScreen} exact />
-            <Route path='/register' component={RegisterScreen} />
-            <Route path='/about' component={About} />
-            <Route path='/contact-us' component={ContactUs} />
-            <Container>
-                <Route path='/terms-condition' component={TermsAndConditions} />
-                <Route path='/privacy-policy' component={PrivacyPolicy} />
-                <Route path='/refund-policy' component={RefundPolicy} />
-               
-                <Route path='/profile' component={ProfileScreen} />
-                <Route path='/login' component={LoginScreen} />
- 
-                <Route exact path='/reset' component={Reset} />
-                <Route path='/reset/:token' component={NewPassword} />
+            <main class="app-main" style={{"padding-top":"3.5rem;"}}>
 
-                <Route path='/Role' component={Role} />
-        
-  
-            </Container>
+            <div class="wrapper">
+                <Route path='/' component={HomeScreen} exact />
+                <Route path='/register' component={RegisterScreen} />
+                <Route path='/about' component={About} />
+                <Route path='/contact-us' component={ContactUs} />
+                <Container>
+                    <Route path='/terms-condition' component={TermsAndConditions} />
+                    <Route path='/privacy-policy' component={PrivacyPolicy} />
+                    <Route path='/refund-policy' component={RefundPolicy} />
+                
+                    <Route path='/profile' component={ProfileScreen} />
+                    <Route path='/login' component={LoginScreen} />
+    
+                    <Route exact path='/reset' component={Reset} />
+                    <Route path='/reset/:token' component={NewPassword} />
+
+                    <Route path='/Role' component={Role} />
+            
+    
+                </Container>
+                </div>
+            </main>
             {/* <Footer /> */}
         </Router>
+      </main>
 
     )
 }

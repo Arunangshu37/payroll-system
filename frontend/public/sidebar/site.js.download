@@ -1,0 +1,88 @@
+﻿
+$(document).ready(function () {
+    var currenturl = window.location.pathname;
+    var menuItem = $(".menu-item a[href='" + currenturl + "']");
+    if (menuItem.length == 0) {
+        //if this link is deep, not directly linked in menu, check one level up
+        var index = currenturl.lastIndexOf("/");
+        currenturl = currenturl.substr(0, index);
+        menuItem = $(".menu-item a[href='" + currenturl + "']");
+        if (menuItem.length == 0) {
+            //still not found, try one more level up
+            var index = currenturl.lastIndexOf("/");
+            currenturl = currenturl.substr(0, index);
+            menuItem = $(".menu-item a[href='" + currenturl + "']");
+        }
+    }
+    if (menuItem.length > 0) {
+        menuItem.parent().addClass('has-active');
+        menuItem.parent().parent().parent().addClass('has-active');
+        //if it is 3rd level menu... check if parent has 'menu' class
+        if (menuItem.parent().parent().parent().parent().hasClass("menu")) {
+            menuItem.parent().parent().parent().parent().parent().addClass('has-active');
+        }
+    }
+
+    //on every page load, fetch user details to show in menu, warning etc.
+    $.ajax({
+        method: "GET",
+        url: "/api/user/info",
+        dataType: "JSON",
+        success: function (d) {
+            $('.account-name').html((d.name.length > 20 ? d.name.substring(0, 17) + "..." : d.name));
+            $('.account-description').html((d.email.length > 30 ? d.email.substring(0, 27) + "..." : d.email));
+            if (d.email_verified == false) $('#_divWarningEmailNotVerified').removeClass("d-none");
+            if (d.mobile_verified == false) $('#_divWarningMobileNotVerified').removeClass("d-none");
+        },
+        error: function (e) {
+            $('#divContent').html("<div class='d-flex justify-content-center'><p class='text-center'>" + _fetchErrorMessage(e) + "</p></div>");
+        }
+    });
+
+
+});
+
+function _geturlkey(key) {
+    var url = window.location.href;
+    if (url.lastIndexOf("?") < 0) {
+        return;
+    }
+    var querystring = decodeURIComponent(url.substring(url.lastIndexOf('?') + 1));
+    var kvplist = querystring.split("&");
+    for (var i = 0; i < kvplist.length; i++) {
+        var kvp = kvplist[i].split("=");
+        if (kvp.length >= 2 && kvp[0] == key) { return kvp[1]; }
+    }
+    //reach here if key not found;
+    return null;
+}
+
+function _fetchErrorMessage(e) {
+    if (e.status == 401) {
+        return "You are not authorized to perform this action.";
+    }
+    else if (e.status == 402) {
+        return "Your current plan does not support this feature.";
+    }
+    else if (e.status == 403) {
+        return "You do not have sufficient rights to perform this action.";
+    }
+    else if (e.status == 404) {
+        return "The requested item was not found. Please contact support.";
+    }
+    else if (!e.responseJSON && !e.responseText)
+        return "An unexpected error occurred. Please check your internet connection and try again.";
+    else if (e.responseJSON && e.responseJSON.Message)
+        return e.responseJSON.Message;
+    else if (e.responseText)
+        return e.responseText;
+    else
+        return "An unexpected error occurred. Please try after some time.";
+}
+
+function _waithtml(short) {
+    if (short == true)
+        return "<i class='fa fa-fw fa-refresh fa-spin'></i>";
+    else
+        return "<i class='fa fa-fw fa-refresh fa-spin mr-1'></i> Please wait...";
+}
